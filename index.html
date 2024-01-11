@@ -118,75 +118,83 @@
             Ball <span>on Plate</span>
           </h2>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+            We propose to develop a system that enables the precise control and balance of a metal ball on a plate using advanced hardware components and intuitive user interfaces. The project comprises three main modules: Hardware, Desktop Application, and Mobile Application. The system utilizes an ESP32 microcontroller (Arduino is added), servo motors, a metal ball, and a plate. The Desktop Application, developed with QT, provides a virtual representation of the plate and ball movements. Additionally, the Mobile Application, built with Flutter, allows users to control the plate's tilt by tilting their phone. Communication between these modules will be established to ensure seamless operation.
           </p>
         </div>
         <div class="row">
-          <div class="col-md-4 ">
+          <div>
             <div class="box ">
-              <div class="img-box">
-                <img src="images/s1.png" alt="">
-              </div>
               <div class="detail-box">
                 <h5>
                   Hardware
                 </h5>
+                <div class="img-box">
+                  <img src="images/ballOnPlateHardware1.jpg" alt="">
+                </div>
+                <div class="img-box">
+                  <img src="images/ballOnPlateHardware2.jpg" alt="">
+                </div>
+                <div class="img-box">
+                  <img src="images/hardwareFull.jpeg" alt="">
+                </div>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                  The hardware module is responsible for physically balancing the metal ball on the plate. It receives instructions from both the desktop and mobile applications, controlling the servo motors to tilt the plate and maintain balance
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 ">
+          <div>
             <div class="box ">
-              <div class="img-box">
-                <img src="images/s2.png" alt="">
-              </div>
               <div class="detail-box">
                 <h5>
                   Communication
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                  The communication module forms the backbone of the project, enabling seamless interaction between the microcontroller, desktop application, and mobile app. Utilizing a server-client architecture, the controller connects to the central server for real-time updates and data exchange.
+                  There are  a few methods to implement for communication as a plan for now.
+                  Main method is taking commands from the mobile application from the desktop and send them to hardware module.
+                  Other way is, the desktop and mobile app also link to the server, creating a unified communication channel. This setup allows direct communication between the ESP32 and desktop/mobile or indirect communication via the server, ensuring efficient control and monitoring through the PID algorithm.
+                  Asio library is the library that we are using right now.
+                  Our final design solution is like this: server starts on the main computer. Then it accepts the connection requests that are sent by the desktop or mobile application. It uses the control commands that are given by the selected application and send those commands to controller. Also it sends data to desktop environment to virtualize the system.
+                  We are able to communicate with controller from server that we are running on any computer.
+                  Users can select the serial port that our controller is connected and then connect to this server using other computers:
                 </p>
+                <div class="img-box">
+                  <img src="images/communicationjpg.jpg" alt="">
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 ">
+          <div>
             <div class="box ">
-              <div class="img-box">
-                <img src="images/s3.png" alt="">
-              </div>
               <div class="detail-box">
                 <h5>
                   Desktop
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                  The desktop application visualizes the real-time movement of the metal ball on the virtual plate. Users can interact with the virtual environment, sending control signals to the hardware module for precise ball positioning and balance
                 </p>
+                <div class="img-box">
+                  <img src="images/desktop.jpg" alt="">
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4 ">
+          <div>
             <div class="box ">
-              <div class="img-box">
-                <img src="images/s3.png" alt="">
-              </div>
               <div class="detail-box">
                 <h5>
                   Mobile
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                  The mobile application allows users to control the plate's tilt by tilting their phone. Tilt sensors detect the phone's orientation changes, translating them into control commands. Users can visualize the metal ball's movement and adjust its position by tilting the mobile device. Users also can control the movement of the ball by the arrow buttons and this is more stable way.
                 </p>
+                <div class="img-box">
+                  <img src="images/mobile1.png" alt="">
+                </div>
+                <div class="img-box">
+                  <img src="images/mobile3.jpg" alt="">
+                </div>
               </div>
             </div>
           </div>
